@@ -15,7 +15,7 @@ class Newton(MovingCameraScene):
         guess_point = Dot([guess, self.func(guess), 0])
         text = MathTex(f"x = {guess}").move_to((RIGHT + UP) * 2)
         self.play(Create(guess_point))
-        self.focus_on_point(guess_point)
+        # self.focus_on_point(guess_point)
         self.add(text)
 
         EPS = 0.001
