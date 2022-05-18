@@ -23,10 +23,6 @@ class Scene_12(Scene):
         newton_img.add(Text("Isaac Newton \n .").scale(0.5).next_to(newton_img,UP))
         raphson_img.add(Text("                    Joseph Raphson \n (Sorry! We could not find his portrait)").scale(0.5).next_to(raphson_img,UP))
 
-        # x= Group(newton_img,raphson_img)
-        # x.arrange()
-        # self.add(x)
-
         self.play(
             Write(text),
         )
@@ -39,9 +35,10 @@ class Scene_12(Scene):
 
         self.play(
             FadeIn(newton_img, shift=RIGHT),
-        )
-        self.wait(1)
-        self.play(
             FadeIn(raphson_img, shift=LEFT)
         )
+        # self.wait(1)
+        # self.play(
+        #     FadeIn(raphson_img, shift=LEFT)
+        # )
         self.wait(1)
