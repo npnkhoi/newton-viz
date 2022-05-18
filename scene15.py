@@ -146,7 +146,7 @@ class Scene_15(Scene):
             return x
         
         draw_guess(x)
-        for _ in range(5):
+        for _ in range(3):
             x = improve(x)
 
 
