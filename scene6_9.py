@@ -2,7 +2,7 @@ from manim import *
 
 from utils import derivative, get_solutions
 
-class Scene6_7(Scene):
+class Scene6_9(Scene):
   def construct(self):
     func = lambda x: x**5 - 6*x**4 + 4*x**3 + 5*x**2 - 2*x + 1
     
@@ -64,11 +64,16 @@ class Scene6_7(Scene):
       x = x - func(x) / deriv(x)
       
       new_text = MathTex(f"x = {round(x, 3)}").move_to(LEFT*2 + UP)
+      print(f'Transforming from {id(text)} to {id(new_text)}')
+      
+      # self.play(Transform(text, new_text))
       self.remove(text)
-      self.play(Transform(text, new_text))
+      self.add(new_text)
+      print(f'Transformed from {id(text)} to {id(new_text)}')
+      
       draw_guess(x)
       self.remove(tangent)
-      print(id(new_text))
+      
       return x, new_text
     
     draw_guess(x)
