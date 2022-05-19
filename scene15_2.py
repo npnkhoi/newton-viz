@@ -3,12 +3,12 @@ from manim import *
 class Scene15_2(Scene):
     def construct(self):
 
-        text = Text("Perpetuation", font_size=50)
+        text = Tex("Perpetuation", font_size=50)
         text.shift(UP*3 + LEFT*3)
         self.add(text)
         # ==================
 
-        unwanted_text = Text("Unwanted root")
+        unwanted_text = Tex("Unwanted root")
         unwanted_text.shift(UP*3 + LEFT*3)
 
         self.play(Transform(text, unwanted_text))

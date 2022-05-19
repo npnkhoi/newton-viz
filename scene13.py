@@ -4,7 +4,7 @@ class Scene13(Scene):
     def construct(self):
        
         text_form = MathTex(r"x_{n+1} = x_n - ",r"\frac{f(x_n)}{f'(x_n)}", font_size=30)
-        # text_form = Text("x_{n+1} = x_n - \\frac{f(x_n)}{f'(x_n)}", font_size=30)
+        # text_form = Tex("x_{n+1} = x_n - \\frac{f(x_n)}{f'(x_n)}", font_size=30)
         self.play(FadeIn(text_form, shift=DOWN))
         self.wait(3)
 

@@ -3,7 +3,7 @@ from manim import *
 class Scene12(Scene):
     def construct(self):
 
-        text = Text("Newton-Raphson Method", font_size=50)
+        text = Tex("Newton-Raphson Method", font_size=50)
 
         newton_img= ImageMobject("assets/img/Newton.jpeg")
         raphson_img = ImageMobject("assets/img/Anonymous.jpeg")
@@ -16,8 +16,8 @@ class Scene12(Scene):
         raphson_img.shift(RIGHT*3)
         raphson_img.shift(DOWN)
 
-        newton_img.add(Text("Isaac Newton \n .").scale(0.5).next_to(newton_img,UP))
-        raphson_img.add(Text("                    Joseph Raphson \n (Sorry! We could not find his portrait)").scale(0.5).next_to(raphson_img,UP))
+        newton_img.add(Tex("Isaac Newton \n .").scale(0.5).next_to(newton_img,UP))
+        raphson_img.add(Tex("                    Joseph Raphson \n (Sorry! We could not find his portrait)").scale(0.5).next_to(raphson_img,UP))
 
         self.play(
             Write(text),

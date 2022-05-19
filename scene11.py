@@ -2,7 +2,7 @@ from manim import *
 
 class Scene11(Scene):
   def construct(self):
-    question = Text("Stopping criterion?")
+    question = Tex("Stopping criterion?")
     answer1 = Tex(r"1) $|x_i - x_{i+1}| < \epsilon$")
     answer2 = Tex(r"2) $|f(x_i)| < \epsilon$")
     VGroup(question, answer1, answer2).arrange(DOWN)

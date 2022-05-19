@@ -5,7 +5,7 @@ import numpy as np
 class Scene15(Scene):
     def construct(self):
 
-        text = Text("Pitfalls", font_size=50)
+        text = Tex("Pitfalls", font_size=50)
         self.add(text)
 
         self.play(
@@ -18,15 +18,15 @@ class Scene15(Scene):
             text.animate.shift(UP*3)
         )
 
-        differentiable_text = Text("The function is not differentiable at the guess")
+        differentiable_text = Tex("Not differentiable at the guess")
         differentiable_text.shift(UP*3)
 
         self.play(Transform(text, differentiable_text))
 
         guess = Tex("$x_i$")
         improve = MathTex(r"x_i \rightarrow x_{i+1}=x_i+", r"\frac{f(x_i)}{f'(x_i)}")
-        # guess = Text("x_i")
-        # improve = Text("x_i \rightarrow x_{i+1}=x_i+\\frac{f(x_i)}")
+        # guess = Tex("x_i")
+        # improve = Tex("x_i \rightarrow x_{i+1}=x_i+\\frac{f(x_i)}")
 
         rect = SurroundingRectangle(improve[1])
         # rect = SurroundingRectangle(improve[0])
@@ -40,7 +40,7 @@ class Scene15(Scene):
         # ==================
 
         close_zero_text = MathTex(r"f'(x_n) \approx 0")
-        # close_zero_text = Text("f'(x_n) \\approx 0")
+        # close_zero_text = Tex("f'(x_n) \\approx 0")
         close_zero_text.shift(UP*3 + LEFT*3)
 
         self.play(Transform(text, close_zero_text))
@@ -52,7 +52,7 @@ class Scene15(Scene):
         self.remove(axes, graph)
         # ==================
 
-        perpetuation_text = Text("Perpetuation")
+        perpetuation_text = Tex("Perpetuation")
         perpetuation_text.shift(UP*3 + LEFT*3)
 
         self.play(Transform(text, perpetuation_text))

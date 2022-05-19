@@ -7,7 +7,7 @@ class Scene16(Scene):
         # title = Title(f"Newton-Raphson Method")
         # self.add(banner, title)
 
-        text1 = Text("Newton-Raphson Method", font_size=40)
+        text1 = Tex("Newton-Raphson Method", font_size=40)
         self.add(text1)   
 
         self.play(
@@ -15,7 +15,7 @@ class Scene16(Scene):
         )
         self.wait(1)
 
-        text11 = Text("is an incredibly powerful numerical method for finding roots", font_size=30, 
+        text11 = Tex("is an incredibly powerful numerical method for finding roots", font_size=30, 
         t2c={"numerical":YELLOW, "roots": YELLOW})
         text11.shift(DOWN)
         self.play(FadeIn(text11, shift=DOWN))
@@ -28,11 +28,11 @@ class Scene16(Scene):
         #     text1.animate.shift(LEFT*3)
         # )
 
-        text2 = Text("Secant Method", font_size=40)
+        text2 = Tex("Secant Method", font_size=40)
         self.add(text2)
         self.play(FadeIn(text2, shift=LEFT))
 
-        text3 = Text("Bisection Method", font_size=40)
+        text3 = Tex("Bisection Method", font_size=40)
         text3.shift(DOWN)
         self.add(text3)
         self.play(FadeIn(text3, shift=RIGHT))
@@ -42,7 +42,7 @@ class Scene16(Scene):
         self.play(FadeOut(text2, shift=RIGHT))
         self.play(FadeOut(text3, shift=LEFT))
 
-        text4 = Text(
+        text4 = Tex(
             """
             Newton-Raphson Method is simple and fast. 
             """,
@@ -53,7 +53,7 @@ class Scene16(Scene):
         self.wait(1)
         self.play(Transform(text1, text4))
         self.wait(3)
-        self.play(Transform(text1, Text("The End", font_size=60)))
+        self.play(Transform(text1, Tex("The End", font_size=60)))
 
 
 
