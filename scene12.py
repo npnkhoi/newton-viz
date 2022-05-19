@@ -2,9 +2,6 @@ from manim import *
 
 class Scene_12(Scene):
     def construct(self):
-        # banner = ManimBanner()
-        # title = Title(f"Newton-Raphson Method")
-        # self.add(banner, title)
 
         text = Text("Newton-Raphson Method", font_size=50)
 

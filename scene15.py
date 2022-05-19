@@ -23,12 +23,13 @@ class Scene_15(Scene):
 
         self.play(Transform(text, differentiable_text))
 
-        # guess = Tex("$x_i$")
-        # improve = MathTex(r"x_i \rightarrow x_{i+1}=x_i+\frac{f(x_i)}", r"{f'(x_i)}")
-        guess = Text("x_i")
-        improve = Text("x_i \rightarrow x_{i+1}=x_i+\\frac{f(x_i)}")
-        # rect = SurroundingRectangle(improve[1]) # uncomment when render Tex
-        rect = SurroundingRectangle(improve[0])
+        guess = Tex("$x_i$")
+        improve = MathTex(r"x_i \rightarrow x_{i+1}=x_i+\frac{f(x_i)}", r"{f'(x_i)}")
+        # guess = Text("x_i")
+        # improve = Text("x_i \rightarrow x_{i+1}=x_i+\\frac{f(x_i)}")
+
+        rect = SurroundingRectangle(improve[1])
+        # rect = SurroundingRectangle(improve[0])
         self.add(guess)
         self.wait(0.5)
         self.play(Transform(guess, improve))
@@ -38,8 +39,8 @@ class Scene_15(Scene):
         self.remove(guess, improve, rect)
         # ==================
 
-        # close_zero_text = MathTex(r"f'(x_n) \\approx 0")
-        close_zero_text = Text("f'(x_n) \\approx 0")
+        close_zero_text = MathTex(r"f'(x_n) \approx 0")
+        # close_zero_text = Text("f'(x_n) \\approx 0")
         close_zero_text.shift(UP*3 + LEFT*3)
 
         self.play(Transform(text, close_zero_text))
