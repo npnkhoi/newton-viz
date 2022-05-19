@@ -2,12 +2,8 @@ from manim import *
 
 class Scene_12(Scene):
     def construct(self):
-        # banner = ManimBanner()
-        # title = Title(f"Newton-Raphson Method")
-        # self.add(banner, title)
 
         text = Text("Newton-Raphson Method", font_size=50)
-        self.add(text)
 
         newton_img= ImageMobject("assets/img/Newton.jpeg")
         raphson_img = ImageMobject("assets/img/Anonymous.jpeg")
@@ -26,7 +22,7 @@ class Scene_12(Scene):
         self.play(
             Write(text),
         )
-        self.wait(0.5)
+        self.wait(1.5)
 
         self.play(
             text.animate.shift(UP*3)
@@ -37,8 +33,4 @@ class Scene_12(Scene):
             FadeIn(newton_img, shift=RIGHT),
             FadeIn(raphson_img, shift=LEFT)
         )
-        # self.wait(1)
-        # self.play(
-        #     FadeIn(raphson_img, shift=LEFT)
-        # )
-        self.wait(1)
+        self.wait(2.5)
