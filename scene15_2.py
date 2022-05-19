@@ -1,6 +1,6 @@
 from manim import *
 
-class Scene_15_2(Scene):
+class Scene15_2(Scene):
     def construct(self):
 
         text = Text("Perpetuation", font_size=50)

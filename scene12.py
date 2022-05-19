@@ -1,6 +1,6 @@
 from manim import *
 
-class Scene_12(Scene):
+class Scene12(Scene):
     def construct(self):
 
         text = Text("Newton-Raphson Method", font_size=50)

@@ -1,6 +1,6 @@
 from manim import *
 
-class Scene_13(Scene):
+class Scene13(Scene):
     def construct(self):
        
         text_form = MathTex(r"x_{n+1} = x_n - ",r"\frac{f(x_n)}{f'(x_n)}", font_size=30)
@@ -8,7 +8,7 @@ class Scene_13(Scene):
         self.play(FadeIn(text_form, shift=DOWN))
         self.wait(3)
 
-        text_sim = Text("Simplicity", font_size=40, color=BLUE)
+        text_sim = Tex("Simplicity", font_size=40, color=BLUE)
         text_sim.shift(UP*2)
         text_sim.shift(LEFT*3)
         self.play(FadeIn(text_sim, shift=RIGHT))
@@ -18,7 +18,7 @@ class Scene_13(Scene):
         self.play(Create(rect))
         self.wait(2)
 
-        text_rapid = Text("Rapid convergence", font_size=40, color=YELLOW)
+        text_rapid = Tex("Rapid convergence", font_size=40, color=YELLOW)
         text_rapid.shift(UP*2)
         text_rapid.shift(RIGHT*3)
         self.play(FadeIn(text_rapid, shift=LEFT))

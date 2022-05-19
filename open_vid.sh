@@ -1,1 +1,1 @@
-xdg-open media/videos/scene$1/480p15/Scene$1.mp4
+xdg-open media/videos/scene$1/1080p60/Scene$1.mp4

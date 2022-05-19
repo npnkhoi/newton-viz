@@ -2,7 +2,7 @@ from cmath import cos
 from manim import *
 import numpy as np
 
-class Scene_15(Scene):
+class Scene15(Scene):
     def construct(self):
 
         text = Text("Pitfalls", font_size=50)
@@ -24,7 +24,7 @@ class Scene_15(Scene):
         self.play(Transform(text, differentiable_text))
 
         guess = Tex("$x_i$")
-        improve = MathTex(r"x_i \rightarrow x_{i+1}=x_i+\frac{f(x_i)}", r"{f'(x_i)}")
+        improve = MathTex(r"x_i \rightarrow x_{i+1}=x_i+", r"\frac{f(x_i)}{f'(x_i)}")
         # guess = Text("x_i")
         # improve = Text("x_i \rightarrow x_{i+1}=x_i+\\frac{f(x_i)}")
 
@@ -151,10 +151,3 @@ class Scene_15(Scene):
         draw_guess(x)
         for _ in range(4):
             x = improve(x)
-
-
-    
-
-
-    
-

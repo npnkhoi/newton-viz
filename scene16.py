@@ -1,7 +1,7 @@
 from matplotlib.transforms import Transform
 from manim import *
 
-class Scene_16(Scene):
+class Scene16(Scene):
     def construct(self):
         # banner = ManimBanner()
         # title = Title(f"Newton-Raphson Method")
