@@ -7,4 +7,4 @@ class Scene1(Scene):
     VGroup(title, members).arrange(DOWN)
     self.play(Write(title))
     self.play(Write(members))
-    self.wait(2)
+    self.wait(4)

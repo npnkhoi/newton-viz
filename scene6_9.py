@@ -1,12 +1,13 @@
 from manim import *
 
-from utils import derivative, get_solutions
+from utils import EXAMPLE_FUNCTION, OFFSET, derivative, get_solutions
 
 class Scene6_9(Scene):
   def construct(self):
-    func = lambda x: x**5 - 6*x**4 + 4*x**3 + 5*x**2 - 2*x + 1
+    func = EXAMPLE_FUNCTION
     
     axes = self.draw_background(func)
+    self.wait(16.5)
     self.draw_and_hide_solutions(axes, func)
     self.run_newton(axes, func, 0.75)
   
@@ -27,8 +28,9 @@ class Scene6_9(Scene):
   def draw_and_hide_solutions(self, axes, func):
     sols = get_solutions(func)[:3]
     points = [Dot(axes.coords_to_point(x, 0), color=RED) for x in sols]
-    self.play(*[Create(point) for point in points])
-    self.wait(1)
+    for point in points:
+      self.play(Create(point))
+    self.wait(4)
     self.remove(*points)
     self.wait(1)
 
@@ -37,7 +39,7 @@ class Scene6_9(Scene):
     self.play(Create(text))
     deriv = derivative(func)
     
-    def draw_guess(x: float):
+    def draw_guess(x: float, slow=False):
       """
       Return the text
       """
@@ -46,24 +48,29 @@ class Scene6_9(Scene):
       vertical_line = DashedLine(x_point, graph_point)
       
       self.play(Create(x_point))
+      if slow:
+        self.wait(1)
       self.play(Create(vertical_line))
       self.play(Create(graph_point))
       self.remove(x_point, vertical_line)
     
-    def improve(x: float, text: MathTex):
+    def improve(x: float, text: MathTex, slow=False):
       """
       Return new guess
       """
-      OFFSET = 10
       left_point = Dot(axes.coords_to_point(x - OFFSET, func(x) - OFFSET * deriv(x)))
       right_point = Dot(axes.coords_to_point(x + OFFSET, func(x) + OFFSET * deriv(x)))
       tangent = Line(left_point, right_point)
+      if slow:
+        self.wait(2)
       self.play(Create(tangent))
+      if slow:
+        self.wait(6)
 
       # New guess
       x = x - func(x) / deriv(x)
       
-      new_text = MathTex(f"x = {round(x, 3)}").move_to(LEFT*2 + UP)
+      new_text = MathTex(f"x = {round(x, 6)}").move_to(LEFT*3 + UP)
       print(f'Transforming from {id(text)} to {id(new_text)}')
       
       # self.play(Transform(text, new_text))
@@ -76,6 +83,6 @@ class Scene6_9(Scene):
       
       return x, new_text
     
-    draw_guess(x)
-    for _ in range(5):
-      x, text = improve(x, text)
+    draw_guess(x, slow=True)
+    for i in range(5):
+      x, text = improve(x, text, slow=(i==0))
