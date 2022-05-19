@@ -12,7 +12,7 @@ class Scene_15(Scene):
             Write(text),
         )
 
-        self.wait(0.5)
+        self.wait(4)
 
         self.play(
             text.animate.shift(UP*3)
@@ -27,18 +27,20 @@ class Scene_15(Scene):
         # improve = MathTex(r"x_i \rightarrow x_{i+1}=x_i+\frac{f(x_i)}", r"{f'(x_i)}")
         guess = Text("x_i")
         improve = Text("x_i \rightarrow x_{i+1}=x_i+\\frac{f(x_i)}")
+        # rect = SurroundingRectangle(improve[1]) # uncomment when render Tex
         rect = SurroundingRectangle(improve[0])
         self.add(guess)
         self.wait(0.5)
         self.play(Transform(guess, improve))
         self.wait(0.5)
         self.play(Create(rect))
-        self.wait(0.5)
+        self.wait(6)
         self.remove(guess, improve, rect)
         # ==================
 
-        close_zero_text = Text("The derivative is close to 0")
-        close_zero_text.shift(UP*3)
+        # close_zero_text = MathTex(r"f'(x_n) \\approx 0")
+        close_zero_text = Text("f'(x_n) \\approx 0")
+        close_zero_text.shift(UP*3 + LEFT*3)
 
         self.play(Transform(text, close_zero_text))
 
@@ -50,7 +52,7 @@ class Scene_15(Scene):
         # ==================
 
         perpetuation_text = Text("Perpetuation")
-        perpetuation_text.shift(UP*3)
+        perpetuation_text.shift(UP*3 + LEFT*3)
 
         self.play(Transform(text, perpetuation_text))
 
@@ -95,7 +97,7 @@ class Scene_15(Scene):
             tangent = Line(left_point, right_point)
             self.play(Create(tangent))
 
-            self.wait(1)
+            self.wait(5)
             self.remove(graph_point, tangent)
         
         draw_guess(x)
@@ -123,7 +125,7 @@ class Scene_15(Scene):
             vertical_line = DashedLine(x_point, graph_point, color=RED)
             
             self.play(Create(x_point))
-            self.play(Create(vertical_line))
+            self.play(Create(vertical_line), run_time=0.2)
             self.play(Create(graph_point))
             self.remove(x_point, vertical_line)
         
@@ -135,7 +137,7 @@ class Scene_15(Scene):
             left_point = Dot(axes.coords_to_point(x - OFFSET, func(x) - OFFSET * deriv(x)))
             right_point = Dot(axes.coords_to_point(x + OFFSET, func(x) + OFFSET * deriv(x)))
             tangent = Line(left_point, right_point)
-            self.play(Create(tangent))
+            self.play(Create(tangent), run_time = 0.2)
 
             # New guess
             x = x - func(x) / deriv(x)
@@ -146,7 +148,7 @@ class Scene_15(Scene):
             return x
         
         draw_guess(x)
-        for _ in range(3):
+        for _ in range(4):
             x = improve(x)
 
 

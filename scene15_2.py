@@ -4,12 +4,12 @@ class Scene_15_2(Scene):
     def construct(self):
 
         text = Text("Perpetuation", font_size=50)
-        text.shift(UP*3)
+        text.shift(UP*3 + LEFT*3)
         self.add(text)
         # ==================
 
         unwanted_text = Text("Unwanted root")
-        unwanted_text.shift(UP*3)
+        unwanted_text.shift(UP*3 + LEFT*3)
 
         self.play(Transform(text, unwanted_text))
 
